@@ -1,0 +1,5 @@
+query Profile ($nickname: String!){
+	profile (nickname: $nickname) {
+		nickname
+	}
+}

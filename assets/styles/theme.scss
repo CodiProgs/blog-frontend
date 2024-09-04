@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.light {
+	--bg: 255, 255, 255;
+	--bg-soft: 247, 247, 247;
+	--fg: 0, 0, 0;
+	--fg-soft: 107, 114, 128;
+	--primary: 21, 123, 255;
+	--icon: 153, 153, 153;
+}
+
+.dark {
+	--bg: 13, 13, 13;
+	--bg-soft: 28, 28, 28;
+	--fg: 255, 255, 255;
+	--fg-soft: 107, 114, 128;
+	--primary: 21, 123, 255;
+	--icon: 153, 153, 153;
+}
+
+.dark,
+.light {
+	@apply bg-bg text-fg min-h-screen;
+}
