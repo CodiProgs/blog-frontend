@@ -1,12 +1,17 @@
 class PUBLIC {
 	HOME = '/'
 	AUTH = '/auth'
+	USER = (nickname: string) => `/u/${nickname}`
+	POST = (slugCategory: string, slugPost: string) =>
+		`/${slugCategory}/${slugPost}`
+	NEW = '/new'
+	POPULAR = '/popular'
+	SEARCH = (query: string | null) => `/search ${query ? `?q=${query}` : ''}`
 }
 
 class DASHBOARD {
-	private root = '/i'
-
-	HOME = this.root
+	CREATE = '/create'
+	SETTINGS = '/settings'
 }
 
 export const PUBLIC_URL = new PUBLIC()

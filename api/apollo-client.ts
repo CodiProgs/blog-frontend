@@ -1,15 +1,83 @@
 import {
 	ApolloClient,
+	ApolloError,
+	ApolloLink,
 	InMemoryCache,
-	createHttpLink,
+	NextLink,
+	Observable,
+	Operation,
 	from
 } from '@apollo/client'
+import { onError } from '@apollo/client/link/error'
+import createUploadLink from 'apollo-upload-client/createUploadLink.mjs'
+import toast from 'react-hot-toast'
+
+import { authService } from '@/services/auth.service'
+import { tokenService } from '@/services/token.service'
 
 import { SERVER_URL } from '@/config/api.config'
 
-const httpLink = createHttpLink({
+const handleAuthError = async (operation: Operation, forward: NextLink) => {
+	try {
+		const token = await authService.getNewTokens()
+		operation.setContext(({ headers = {} }) => ({
+			headers: {
+				...headers,
+				authorization: `Bearer ${token}`
+			}
+		}))
+		return forward(operation)
+	} catch (error) {
+		throw error
+	}
+}
+
+const errorLink = onError(
+	({ networkError, graphQLErrors, operation, forward }) => {
+		if (networkError) toast.error(networkError.message)
+
+		const isAuthError = graphQLErrors?.some(
+			err => err.extensions?.code === '401'
+		)
+		if (isAuthError) {
+			return new Observable(observer => {
+				handleAuthError(operation, forward)
+					.then(forwardOperation => {
+						forwardOperation.subscribe(observer)
+					})
+					.catch((error: ApolloError) => {
+						tokenService.remove()
+						toast.error(error.message)
+
+						setTimeout(() => {
+							window.location.reload()
+						}, 2500)
+
+						observer.error(error)
+					})
+			})
+		}
+	}
+)
+
+const httpLink = createUploadLink({
 	uri: `${SERVER_URL}/graphql`,
-	credentials: 'include'
+	credentials: 'include',
+	headers: {
+		'apollo-require-preflight': 'true'
+	}
+})
+
+const authMiddleware = new ApolloLink((operation, forward) => {
+	const token = tokenService.get()
+	if (token) {
+		operation.setContext({
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		})
+	}
+	return forward(operation)
 })
 
 export const client = new ApolloClient({
@@ -17,5 +85,6 @@ export const client = new ApolloClient({
 	headers: {
 		'Content-Type': 'application/json'
 	},
-	link: from([httpLink])
+	ssrMode: typeof window === 'undefined',
+	link: from([authMiddleware, errorLink, httpLink])
 })

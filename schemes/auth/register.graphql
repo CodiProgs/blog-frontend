@@ -1,0 +1,8 @@
+mutation Register($input: RegisterDto!) {
+	auth: register(registerInput: $input) {
+		accessToken
+		user {
+			...UserFields
+		}
+	}
+}

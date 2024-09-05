@@ -1,0 +1,18 @@
+.field {
+	@apply text-sm;
+
+	label {
+		@apply block;
+		span {
+			@apply block font-medium leading-6 text-fg_soft mb-1;
+		}
+
+		> input {
+			@apply w-full rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-fg/10 outline-none placeholder:text-gray-400 focus:ring-primary h-9 bg-bg;
+		}
+	}
+}
+
+.error {
+	@apply text-red-500 mt-2;
+}

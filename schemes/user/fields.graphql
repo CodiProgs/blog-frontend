@@ -1,0 +1,8 @@
+fragment UserFields on UserType {
+	id
+	name
+	email
+	nickname
+	avatar
+	bio
+}
