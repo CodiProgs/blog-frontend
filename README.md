@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project on Hold
+
+Development of this project will be paused for an indefinite period. I’ve decided to focus on improving my daily routine and fixing my sleep schedule.
+
+Once I’ve addressed these issues, I plan to work on my personal pet project, [Task Manager](https://github.com/CodiProgs/task-manager-frontend), as I’ve come up with new ideas for its development.
 
 ## Getting Started
 
