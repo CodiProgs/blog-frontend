@@ -1,0 +1,5 @@
+mutation UpdateComment($id: String!, $input: CommentDto!) {
+	updateComment(id: $id, updateCommentInput: $input) {
+		...CommentFields
+	}
+}

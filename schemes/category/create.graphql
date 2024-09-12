@@ -1,0 +1,5 @@
+mutation CreateCategory($input: CategoryDto!) {
+	createCategory(createCategoryInput: $input) {
+		...CategoryFields
+	}
+}

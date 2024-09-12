@@ -1,5 +1,19 @@
 query Profile($nickname: String!) {
 	profile(nickname: $nickname) {
+		posts {
+			author {
+				...UserFields
+			}
+			category {
+				...CategoryFields
+			}
+			media {
+				id
+				type
+				url
+			}
+			...PostFields
+		}
 		...UserFields
 	}
 }

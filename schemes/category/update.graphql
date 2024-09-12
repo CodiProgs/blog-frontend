@@ -1,0 +1,5 @@
+mutation UpdateCategory($id: String!, $input: CategoryDto!) {
+	updateCategory(id: $id, updateCategoryInput: $input) {
+		...CategoryFields
+	}
+}

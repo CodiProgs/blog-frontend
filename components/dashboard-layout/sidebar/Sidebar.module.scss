@@ -1,0 +1,23 @@
+.sidebar {
+	@apply sticky top-[70px] left-0 z-40 shadow-[0_0_0_1px] shadow-fg/5 h-[calc(100vh-70px)] bg-bg/5 overflow-y-auto;
+
+	.hr {
+		@apply h-px bg-fg/5 my-[10px] mx-5;
+	}
+
+	.menu {
+		@apply mt-5;
+		.item {
+			@apply my-1 rounded-md;
+			&:hover {
+				@apply bg-fg/5;
+			}
+			a {
+				@apply flex items-center px-5 h-12;
+				svg {
+					@apply mr-2 text-icon;
+				}
+			}
+		}
+	}
+}

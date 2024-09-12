@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const serverUrl = process.env.SERVER_URL
 	? `${process.env.SERVER_URL}/graphql`
-	: 'http://localhost:4000/graphql'
+	: 'http://localhost:4200/graphql'
 
 module.exports = {
 	schema: serverUrl,

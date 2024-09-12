@@ -5,4 +5,5 @@ fragment UserFields on UserType {
 	nickname
 	avatar
 	bio
+	createdAt
 }

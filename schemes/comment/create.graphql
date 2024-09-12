@@ -1,0 +1,5 @@
+mutation CreateComment($input: CommentDto!) {
+	createComment(createCommentInput: $input) {
+		...CommentFields
+	}
+}

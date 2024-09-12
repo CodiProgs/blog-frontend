@@ -1,0 +1,21 @@
+.title {
+	@apply font-semibold text-sm px-5 leading-[48px] text-fg/40 select-none;
+}
+
+.item {
+	@apply my-1 rounded-md;
+
+	&:hover {
+		@apply bg-fg/5;
+	}
+	a {
+		@apply flex items-center px-5 h-12;
+		svg {
+			@apply mr-2 text-icon;
+		}
+	}
+}
+
+.skeleton {
+	@apply bg-fg/20 animate-pulse w-full h-12;
+}

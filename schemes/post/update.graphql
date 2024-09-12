@@ -1,0 +1,5 @@
+mutation UpdatePost($input: PostDto!, $id: String!) {
+	updatePost(updatePostInput: $input, id: $id) {
+		...PostFields
+	}
+}

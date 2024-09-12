@@ -5,3 +5,7 @@
 body {
 	@apply min-h-screen;
 }
+
+.no-scroll {
+	overflow: hidden;
+}

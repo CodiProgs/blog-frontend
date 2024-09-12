@@ -1,0 +1,64 @@
+.user {
+	@apply rounded-lg bg-bg_soft shadow-lg p-6 border border-fg/5 relative;
+
+	.info {
+		@apply flex items-center space-x-7 mb-4;
+
+		.avatar {
+			@apply size-24 bg-fg/5 rounded-full select-none relative flex-shrink-0;
+
+			img {
+				@apply w-full h-full object-cover rounded-full;
+			}
+		}
+
+		.name {
+			@apply text-lg font-semibold text-fg;
+		}
+
+		.bio {
+			@apply text-sm text-fg_soft;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	.createdAt {
+		@apply text-xs text-fg_soft flex items-center space-x-1;
+	}
+
+	.posts_count {
+		@apply text-sm text-fg font-semibold mt-2 flex items-center space-x-2;
+	}
+
+	.edit {
+		@apply text-sm text-icon hover:text-fg absolute right-6 top-6 transition;
+	}
+}
+
+.skeleton {
+	@apply animate-pulse;
+
+	.info > &.avatar {
+		@apply bg-fg/20;
+	}
+
+	&.name {
+		@apply w-24 h-6 bg-fg/20 rounded my-1;
+	}
+
+	&.bio {
+		@apply w-36 h-5 bg-fg/20 rounded;
+	}
+
+	&.date {
+		@apply w-16 h-4 bg-fg/20 rounded block;
+	}
+
+	&.count {
+		@apply w-8 h-4 bg-fg/20 rounded block;
+	}
+}

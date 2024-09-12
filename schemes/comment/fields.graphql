@@ -1,0 +1,6 @@
+fragment CommentFields on CommentType {
+	id
+	createdAt
+	content
+	isDeleted
+}

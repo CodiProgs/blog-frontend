@@ -1,0 +1,36 @@
+.item {
+	@apply h-10;
+
+	.content {
+		@apply flex items-center px-5 h-full w-full;
+
+		.icon {
+			@apply mr-[9px] text-icon;
+		}
+
+		.toggleWrapper {
+			@apply flex items-center ml-auto relative;
+		}
+
+		.toggle {
+			@apply bg-icon rounded-[10px] cursor-pointer h-5 w-[32px] duration-200;
+
+			&:disabled {
+				@apply opacity-50 cursor-not-allowed;
+			}
+
+			&::before {
+				content: '';
+				@apply w-[16px] h-[16px] rounded-full bg-bg absolute top-[2px];
+			}
+
+			&.toggleLight {
+				@apply before:left-[2px] hover:bg-[#cccccc];
+			}
+
+			&.toggleDark {
+				@apply bg-[#F8E71C] hover:bg-opacity-80 before:right-[2px];
+			}
+		}
+	}
+}

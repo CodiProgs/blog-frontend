@@ -1,0 +1,16 @@
+.header {
+	@apply bg-bg_soft sticky top-0 left-0 z-50 shadow-[0_0_0_1px] shadow-fg/5 h-[70px] w-full flex items-center;
+
+	.content {
+		@apply flex items-center justify-between w-3/4 px-4 mx-auto;
+	}
+
+	.logo {
+		a {
+			@apply flex items-center leading-6 text-[20px];
+			svg {
+				@apply mr-2 text-icon size-6;
+			}
+		}
+	}
+}

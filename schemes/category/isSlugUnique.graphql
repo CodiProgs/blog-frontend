@@ -1,0 +1,3 @@
+query IsSlugUniqueCategory($slug: String!) {
+	isSlugUniqueCategory(slug: $slug)
+}

@@ -1,0 +1,11 @@
+.modal {
+	@apply fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center;
+
+	.label {
+		@apply text-white text-2xl mb-5;
+	}
+
+	.close {
+		@apply absolute top-0 right-0 m-5 cursor-pointer text-white;
+	}
+}

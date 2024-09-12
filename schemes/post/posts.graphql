@@ -1,0 +1,11 @@
+query Posts($queryParams: PostQueryParamsDto!) {
+	posts(queryParams: $queryParams) {
+		posts {
+			...PostFields
+		}
+		queryParams {
+			skip
+			skipCategories
+		}
+	}
+}

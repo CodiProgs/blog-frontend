@@ -1,0 +1,11 @@
+fragment PostFields on PostType {
+	id
+	createdAt
+	title
+	content
+	slug
+	views
+	isLiked
+	likesCount
+	commentsCount
+}
